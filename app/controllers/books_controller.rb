@@ -6,12 +6,15 @@ before_action :is_matching_login_user, only: [:edit, :update]
     @new = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
+    @book_comment = BookComment.new
+    
   end
 
   def index
     @books = Book.all
     @user = current_user
     @book = Book.new
+    @book_comment = BookComment.new
   end
 
   def create
